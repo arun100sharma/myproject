@@ -1,7 +1,21 @@
 <form method="POST" action="">
 
    {% csrf_token %}
-   {{ form }}
+   {{ form.non_field_errors }}
+   <div class="field_wrapper">
+   	{{ form.description.errors }}
+   	<label for=" {{ form.description.id_for_label }}">Description : </label>
+   	 {{ form.description }}
+   </div>
+
+   <div class="field_wrapper">
+   	{{ form.title.errors }}
+   	  	<label for="{{ form.title.id_for_label }}">Title : </label>
+   	  	{{ form.title }}
+   	
+   </div>
+
+
 	<input type="submit" name="Save">
 	
 
